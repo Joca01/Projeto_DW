@@ -5,10 +5,11 @@ db.users = new database("users.db")
 db.users.loadDatabase()
 
 // Registo de um utilizador na base de dados
-exports.crud_register = (username, password) => {
+exports.crud_register = (name, email, password) => {
     return new Promise((resolve, reject) => {
         data = {
-            username: username,
+            name: name,
+            email: email,
             password: password,
         };
         db.users.insert(data, (err, dados) => {

@@ -15,9 +15,9 @@ exports.register = async (req, res) => {
         const auth = req.body 
         const salt = await bcrypt.genSalt()
         const hashPassword = await bcrypt.hash(auth.password, salt) // Hash da password
-        db.crud_register(auth.username, hashPassword) // Insert do User na BD
+        db.crud_register(auth.name, auth.email, hashPassword) // Insert do User na BD
             .then((data) => {
-                res.status(201).send({ message: `User ${auth.username} created` })
+                res.status(201).send({ message: `User ${auth.name} created` })
             })
     } catch {
         return res.status(400).send({ message: 'User not registred' }) // Controlo de erro se o user nao estiver registado
