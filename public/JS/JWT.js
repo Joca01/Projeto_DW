@@ -3,7 +3,7 @@ require('dotenv').config()
 const jtw = require('jsonwebtoken')
 
 const createTokens = (user) => {
-    const accessToken = jtw.sign({ username: user.username, id: user.id }, process.env.ACCESS_TOKEN_SECRET)
+    const accessToken = jtw.sign({ email: user.email , id: user.id }, process.env.ACCESS_TOKEN_SECRET)
     return accessToken
 }
 

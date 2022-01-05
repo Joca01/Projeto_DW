@@ -7,8 +7,10 @@ module.exports = app => {
 
     app.use('/api', router)
 
+    // router.get('/course1')
+
     router.post('/register', authentication_controller.register)
 
     router.post('/login', authentication_controller.login)
-    
+
 }

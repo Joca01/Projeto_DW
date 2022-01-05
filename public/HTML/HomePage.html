@@ -1,0 +1,306 @@
+<html lang="en">
+
+<head>
+    <title>EaD</title>
+    <link rel="stylesheet" type="text/css" href="public/CSS/index.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!-- <script src="jq/jquery-2.1.1.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="public/JS/app.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">Home</a>
+
+        <input type="text" placeholder="Search for a categorie">
+
+        <div class="header-right" style="margin: 5px;">
+            <button type="button" id="btnModalRegister" class="btn btn-secondary btn-wrapper" data-bs-toggle="modal"
+                data-bs-target="#modalRegister">
+                Sign Up
+            </button>
+            <button type="button" id="btnModalLogin" class="btn btn-secondary btn-wrapper" data-bs-toggle="modal"
+                data-bs-target="#modalLogin">
+                Login
+            </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Sign Up</h3>
+                            </div>
+                            <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="usernameRegister" name="usernameRegister"
+                            placeholder="Full name" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="emailRegister" name="emailRegister"
+                            placeholder="Email" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="passwordRegister" name="passwordRegister"
+                            placeholder="Password" />
+                        <span class="fa fa-eye" aria-hidden="true" id="togglePassword" onclick="toggle()"></span>
+                    </div>
+                </div>
+                <div class="modal-footer" style="margin: 0px 0px -30px 0px">
+                    <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnSubmitRegistar">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Login</h3>
+                            </div>
+                            <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input class="form-control" id="emailLogin" name="emailLogin" placeholder="Email" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="passwordLogin" name="passwordLogin"
+                            placeholder="Password" />
+                    </div>
+                </div>
+                <div class="modal-footer" style="margin: 0px 0px -15px 0px">
+                    <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnSubmitLogin">
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Logout</h3>
+                            </div>
+                            <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h2>Deseja encerrar sessão?</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnSubmitLogout">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="card" style="width: 18rem; margin: auto">
+                <div class="col">
+                    <img class="card-img-top" src="public/Images/demo_image_1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso 1</h5>
+                        <p class="card-text">Descrição</p>
+                        <a href="/course1" class="btn btn-primary">Inscrever-se</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: auto;">
+                <div class="col">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso 2</h5>
+                        <p class="card-text">Descrição</p>
+                        <a href="#" class="btn btn-primary">Inscrever-se</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: auto;">
+                <div class="col">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso 3</h5>
+                        <p class="card-text">Descrição</p>
+                        <a href="#" class="btn btn-primary">Inscrever-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!------------ JS Scripts ------------>
+
+    <!-- Toggle Psw -->
+    <script>
+        var state = false
+        function toggle() {
+            if (state) {
+                document.getElementById("passwordRegister").setAttribute("type", "password");
+                state = false
+            } else {
+                document.getElementById("passwordRegister").setAttribute("type", "text");
+                state = true
+            }
+        }
+    </script>
+
+    <!-- Sign up  -->
+    <!-- <script>
+        let registerForm = document.getElementById("btnSubmitRegistar")
+
+        registerForm.addEventListener("click", () => {
+            let name = document.getElementById("usernameRegister").value
+            let email = document.getElementById("emailRegister").value
+            let password = document.getElementById("passwordRegister").value
+
+            if (name === '' || password === '') {
+                window.alert('Preencha todos os campos')
+            }
+            else {
+                let auth_data = {
+                    'name': name,
+                    'email': email,
+                    'password': password
+                }
+
+                let auth = JSON.stringify(auth_data)
+
+                fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: auth,
+                }).then((response) => {
+                    if (response.status == 201) {
+                        window.alert(`Utilizador ${name} egistado com sucesso`)
+                        window.open("")
+                        location.reload()
+                    }
+                }).catch((err) => { console.log(err) })
+            }
+        })
+    </script> -->
+
+    <!-- Login -->
+    <!-- <script>
+        let loginForm = document.getElementById("btnSubmitLogin")
+
+        loginForm.addEventListener('click', () => {
+            let email = document.getElementById("emailLogin").value
+            let password = document.getElementById("passwordLogin").value
+
+            if (password == '' || email == '') {
+                window.alert('Preencha todos os campos')
+            }
+            else {
+                let authentication = {
+                    'email': email,
+                    'password': password
+                }
+                let auth = JSON.stringify(authentication)
+
+                fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: auth,
+
+                }).then(async (response) => {
+                    if (response.status == 403) {
+                        window.alert('Utilizador ou palavra passe incorreta')
+                    }
+                    else if (response.status == 200) {
+                        const auth = await response.json()
+                        window.alert(`Login efetuado com sucesso 
+Bem vindo`)
+                        location.reload()
+                    }
+                }).catch((err) => { console.log(err) })
+            }
+        })
+    </script> -->
+
+    <!-- Logout -->
+    <!-- <script>
+        let logoutButton = document.getElementById("btnSubmitLogout")
+        let registerModal = document.getElementById("btnModalRegister")
+        let loginModal = document.getElementById("btnModalLogin")
+        let logoutModal = document.getElementById("btnModalLogout")
+
+        logoutButton.addEventListener("click", () => {
+
+            document.cookie = "access-token=; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+
+            registerModal.classList.add('is-visible')
+            loginModal.classList.add('is-visible')
+            logoutModal.classList.remove('is-visible')
+            location.reload()
+        })
+    </script> -->
+
+    <!-- Check Auth -->
+    <!-- <script>
+        let rbutton = document.getElementById("btnModalRegister")
+        let lbutton = document.getElementById("btnModalLogin")
+        let lobutton = document.getElementById("btnModalLogout")
+
+        const cookieCheck = document.cookie.indexOf('access-token')
+
+        window.addEventListener("load", () => {
+            if (cookieCheck !== -1) {
+                lobutton.classList.add('is-visible')
+                lbutton.classList.remove('is-visible')
+                rbutton.classList.remove('is-visible')
+            }
+        })
+    </script> -->
+
+</body>
+
+</html>
