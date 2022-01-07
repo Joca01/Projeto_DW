@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 const sequelize = require('./database')
 
-sequelize.sync({ force: true }).then(() => console.log('db is ready'));
+sequelize.sync().then(() => console.log('db is ready'));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -13,6 +13,10 @@ require('./routes/routes.js')(app)
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/Html/index.html'))
+})
+
+app.get('/HomePage', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/Html/HomePage.html'))
 })
 
 app.get('/course1', (req, res) => {

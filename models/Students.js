@@ -20,24 +20,4 @@ Student.init({
     timestamps: false
 })
 
-// Registo de um utilizador na base de dados
-exports.crud_register = (name, email, password) => {
-    User.create({
-        name: name,
-        email: email,
-        password: password
-    })
-}
-
-exports.crud_login = (email) => {
-    return new Promise((resolve, reject) => {
-        db.users.findOne({ email: email }, (err, dados) => {
-            if (err) {
-                reject(null)
-            }
-            else {
-                resolve(dados)
-            }
-        })
-    })
-}
+module.exports = Student

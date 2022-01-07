@@ -27,18 +27,15 @@
                     <input type="password" class="form-control" id="passwordLogin" placeholder="Password" />
                     <span class="fa fa-eye" aria-hidden="true" id="togglePassword" onclick="togglePswLogin()"></span>
 
-                    <button class="btn btn-primary" style="width: 100%;" type="submit">Login</button>
+                    <button class="btn btn-primary" id="btnSubmitLogin" style="width: 100%;"
+                        type="submit">Login</button>
                 </div>
             </form>
 
             <form id=registerForm>
                 <h3>Register</h3>
                 <div class="container">
-                    <input type="text" style="width: 49%; float: left;" class="form-control" id="FirstNameRegister"
-                        placeholder="First name" />
-                        
-                    <input type="text" style="width: 50%; float: right;" class="form-control" id="LastNameRegister"
-                        placeholder="Last name" />
+                    <input type="text" class="form-control" id="nameRegister" placeholder="Name" />
 
                     <input type="text" class="form-control" id="emailRegister" placeholder="Email" />
 
@@ -129,18 +126,18 @@
         let registerForm = document.getElementById("btnSubmitRegistar")
 
         registerForm.addEventListener("click", () => {
-            let firstName = document.getElementById("firstNameRegister").value
-            let lastName = document.getElementById("lastNameRegister").value
+            let name = document.getElementById("nameRegister").value
             let email = document.getElementById("emailRegister").value
             let password = document.getElementById("passwordRegister").value
 
-            if (firstName === '' || lastName === '' || password === '' || email === '') {
+            window.location = 'HomePage'
+
+            if (name === '' || password === '' || email === '') {
                 window.alert('Preencha todos os campos')
             }
             else {
                 let auth_data = {
-                    'firstName': firstName,
-                    'lastName': lastName,
+                    'name': name,
                     'email': email,
                     'password': password
                 }
@@ -154,9 +151,10 @@
                     },
                     body: auth,
                 }).then((response) => {
+                    console.log(response.status);
                     if (response.status == 201) {
-                        window.alert(`Utilizador ${firstName} registado com sucesso`)
-                        location.href = HomePage.html
+                        window.alert(`Utilizador ${name} registado com sucesso`)
+                        window.location = 'HomePage' 
                     }
                 }).catch((err) => { console.log(err) })
             }
