@@ -13,4 +13,6 @@ module.exports = app => {
 
     router.post('/login', authentication_controller.login)
 
+    router.post('/registerCourse', main_controller.registerCourse)
+
 }

@@ -25,4 +25,4 @@ Course.init({
     timestamps: false
 })
 
-module.exports = Student
+module.exports = Course
