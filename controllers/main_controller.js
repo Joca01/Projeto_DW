@@ -4,13 +4,13 @@ exports.registerCourse = async (req, res) => {
     try {
         const auth = req.body
 
-        const check = await Course.findAll({
+        const find = await Course.findAll({
             where: {
                 name: auth.name,
             }
         })
 
-        if (check.lenght == 0) {
+        if (find.lenght == 0) {
             Course.create({
                 name: auth.name,
                 credits: auth.credits,
@@ -27,3 +27,18 @@ exports.registerCourse = async (req, res) => {
         return res.status(400).send({ message: err.message }) // Controlo de erro se o user nao estiver registado
     }
 }
+
+// exports.getCourse = async (req, res) => {
+//     try {
+//         const auth = req.body
+        
+//         const check = await Course.findAll({
+//             where: {
+//                 name: auth.name
+//             }
+//         })
+//     }
+//     catch {
+
+//     }
+// }

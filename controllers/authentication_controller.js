@@ -49,36 +49,27 @@ exports.login = async (req, res) => {
                 email: auth.email,
             }
         })
-        console.log(check);
-        
-        
-
-        const studentHashedPassword = await Student.findAll({
-            attributes: ['password']
-        })
-        console.log(studentHashedPassword);
-        if (check !== null) {
-            bcrypt.compare(auth.password, studentHashedPassword, (err, result) => { //compara a palavra passe introduzida com o hash
-                //console.log(studentHashedPassword);
-                // console.log(auth.password);
-                if (result) {
-                    const accessToken = createTokens(auth.email)
-                    res.cookie("access-token", accessToken, {  //guarda o access token numa cookie que dura 30 dias
-                        maxAge: 60 * 60 * 24 * 30 * 1000,
-                        httpOnly: true,
-                    })
-                    res.json("Logged in")
-                } else {
-                    res.status(403).json({ error: "Wrong username and password combination" }) // Controlo a senha e o user nao combinarem
-                }
-            })
+        for (let user of check) {
+            if (check !== null) {
+                bcrypt.compare(auth.password, user.password, (err, result) => { //compara a palavra passe introduzida com o hash
+                    if (result) {
+                        const accessToken = createTokens(auth.email)
+                        res.cookie("access-token", accessToken, {  //guarda o access token numa cookie que dura 30 dias
+                            maxAge: 60 * 60 * 24 * 30 * 1000,
+                            httpOnly: true,
+                        })
+                        res.json("Logged in")
+                    } else {
+                        res.status(403).json({ error: "Wrong username and password combination" }) // Controlo a senha e o user nao combinarem
+                    }
+                })
+            }
+            else {
+                return res.status(403).send({
+                    message: 'Utilizador não encontrado',
+                });
+            }
         }
-        else {
-            return res.status(403).send({
-                message: 'Utilizador não encontrado',
-            });
-        }
-
     } catch (err) {
         return res.status(400).send({ message: err.message })
     }
