@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../database')
-const Student = require("./Students")
 
-class Course extends Model { }
+class Professor extends Model { }
 
-Course.init({
+Professor.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -14,26 +13,17 @@ Course.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    credits: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    description: {
+    email: {
         type: DataTypes.STRING,
-    },
-    duration: {
-        type: DataTypes.INTEGER,
         allowNull: false,
+    },
+    password: {
+        type: DataTypes.STRING,
     },
 }, {
     sequelize,
-    modelName: 'course',
+    modelName: 'professor',
     timestamps: false
 })
 
-Course.hasOne(Student, {
-    foreignKey: 'studentID'
-})
-
-
-module.exports = Course
+module.exports = Professor

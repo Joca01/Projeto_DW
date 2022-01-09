@@ -154,7 +154,7 @@
                     console.log(response.status);
                     if (response.status == 201) {
                         window.alert(`Utilizador ${name} registado com sucesso`)
-                        window.location = 'HomePage' 
+                        window.location = 'HomePage'
                     }
                 }).catch((err) => { console.log(err) })
             }
@@ -164,6 +164,8 @@
     <!-- Login -->
     <script>
         let loginForm = document.getElementById("btnSubmitLogin")
+
+        window.location = 'HomePage'
 
         loginForm.addEventListener('click', () => {
             let email = document.getElementById("emailLogin").value
@@ -194,7 +196,6 @@
                         const auth = await response.json()
                         window.alert(`Login efetuado com sucesso 
 Bem vindo`)
-                        location.reload()
                     }
                 }).catch((err) => { console.log(err) })
             }

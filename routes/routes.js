@@ -15,4 +15,6 @@ module.exports = app => {
 
     router.post('/registerCourse', main_controller.registerCourse)
 
+    router.get('/getCourse', main_controller.getCourse)
+
 }

@@ -4,13 +4,13 @@ exports.registerCourse = async (req, res) => {
     try {
         const auth = req.body
 
-        const find = await Course.findAll({
+        const find = await Course.findOne({
             where: {
                 name: auth.name,
             }
         })
 
-        if (find.lenght == 0) {
+        if (find === null) {
             Course.create({
                 name: auth.name,
                 credits: auth.credits,
@@ -28,17 +28,23 @@ exports.registerCourse = async (req, res) => {
     }
 }
 
-// exports.getCourse = async (req, res) => {
-//     try {
-//         const auth = req.body
-        
-//         const check = await Course.findAll({
-//             where: {
-//                 name: auth.name
-//             }
-//         })
-//     }
-//     catch {
+exports.getCourse = async (req, res) => {
+    try {
+        const auth = req.body
 
-//     }
-// }
+        const find = await Course.findOne({
+            where: {
+                name: auth.name
+            }
+        })
+        if (find === null) {
+            return res.status(403).send({ message: 'Course does not exist' })
+        }
+        else {
+            return res.status(200).send({ message: 'Course Found' })
+        }
+    }
+    catch (err) {
+        return res.status(400).send({ message: err.message }) // Controlo de erro se o user nao estiver registado
+    }
+}
