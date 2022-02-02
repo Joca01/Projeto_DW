@@ -165,11 +165,12 @@
     <script>
         let loginForm = document.getElementById("btnSubmitLogin")
 
-        window.location = 'HomePage'
 
         loginForm.addEventListener('click', () => {
             let email = document.getElementById("emailLogin").value
             let password = document.getElementById("passwordLogin").value
+
+            window.location = 'HomePage'
 
             if (password == '' || email == '') {
                 window.alert('Preencha todos os campos')

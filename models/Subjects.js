@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../database')
-const Student = require("./Students")
 
-class Course extends Model { }
+class Subject extends Model { }
 
-Course.init({
+Subject.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -21,17 +20,10 @@ Course.init({
     description: {
         type: DataTypes.STRING,
     },
-    duration: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
 }, {
     sequelize,
-    modelName: 'course',
+    modelName: 'subject',
     timestamps: false
 })
 
-// Course.hasMany(Student)
-// Student.belongsTo(Course)
-
-module.exports = Course
+module.exports = Subject

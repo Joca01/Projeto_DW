@@ -18,22 +18,7 @@
 </head>
 
 <body>
-    <div class="header">
-        <a href="HomePage">Home</a>
-
-        <input type="text" placeholder="Search for a categorie">
-
-       
-
-        <div class="header-right" style="margin: 5px;">
-            <!-- <span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span> -->
-
-            <button type="button" id="btnModalLogout" class="btn btn-secondary btn-wrapper" data-bs-toggle="modal"
-                data-bs-target="#modalLogout">
-                Logout
-            </button>
-        </div>
-    </div>
+    <%- include('partials/header.ejs') %>
 
     <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -114,32 +99,6 @@
             }
         }
     </script>
-
-    <!-- Get a Course -->
-    <!-- <script>
-        fetch('/api/getCourse')
-            .then(function (response) {
-                return response.json()
-            })
-            .then(function (data) {
-                appendData(data)
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
-
-        function appendData(data) {
-            console.log(data);
-            var courseContainer = document.getElementById("course1")
-            for (var i = 0; i < data.length; i++) {
-                var div = document.createElement("div");
-                courseContainer.innerHTML = data;
-                mainContainer.appendChild(div);
-            }
-        }
-
-
-    </script> -->
 
     <!-- Logout -->
     <script>
