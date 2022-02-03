@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../database')
 const Student = require("./Students")
+const Subject = require("./Subjects")
 
 class Course extends Model { }
 
@@ -31,7 +32,10 @@ Course.init({
     timestamps: false
 })
 
-// Course.hasMany(Student)
-// Student.belongsTo(Course)
+Course.hasOne(Student);
+Student.belongsTo(Course);
+
+Course.belongsToMany(Subject, { foreignKey: "courseId", through: "Course_Subject" })
+Subject.belongsToMany(Course, { foreignKey: "subjectId", through: "Course_Subject" })
 
 module.exports = Course

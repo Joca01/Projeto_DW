@@ -27,11 +27,11 @@ exports.register = async (req, res) => {
                 password: hashPassword
             })
             
-            return res.status(201).send({ message: 'Student created' })
+            return res.status(201).send({ message: auth.name + ' created' })
         }
         else {
             return res.status(403).send({
-                message: 'Stundent Already Registed',
+                message: 'Stundent ' + auth.name + ' already registed',
             });
         }
     } catch (err) {
@@ -59,7 +59,7 @@ exports.login = async (req, res) => {
                             maxAge: 60 * 60 * 24 * 30 * 1000,
                             httpOnly: true,
                         })
-                        res.json("Logged in")
+                        res.json('Logged in with ' + auth.email)
                     } else {
                         res.status(403).json({ error: "Wrong username and password combination" }) // Controlo a senha e o user nao combinarem
                     }

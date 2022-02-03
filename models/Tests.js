@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../database')
-const Course = require('./Courses')
 
-class Subject extends Model { }
+class Test extends Model { }
 
-Subject.init({
+Test.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -14,17 +13,10 @@ Subject.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    credits: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    description: {
-        type: DataTypes.STRING,
-    },
 }, {
     sequelize,
-    modelName: 'subject',
+    modelName: 'Test',
     timestamps: false
 })
 
-module.exports = Subject
+module.exports = Test
