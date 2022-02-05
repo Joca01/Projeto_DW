@@ -1,0 +1,458 @@
+<html lang="en">
+
+<head>
+    <title>EaD</title>
+    <link rel="stylesheet" type="text/css" href="public/CSS/index.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="public/JS/app.js"></script>
+    <script src="../controllers/main_controller.js"></script>
+</head>
+
+<body>
+    <%- include('partials/header.ejs') %>
+
+        <!-- LOGOUT MODAL -->
+        <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Logout</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Deseja encerrar sessão?</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnSubmitLogout">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTER COURSE MODAL -->
+        <div class="modal fade" id="modalRegisterCourse" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Adicionar um curso</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Nome: </label>
+                                <input class="form-control" id="registerCourseName">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Créditos: </label>
+                                <input class="form-control" id="registerCourseCredits"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Descrição (opcional): </label>
+                                <textarea class="form-control" id="registerCourseDescription"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Duração: </label>
+                                <input class="form-control" id="registerCourseDuration"></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end"
+                            id="btnSubmitRegisterCourse">
+                            Adicionar Curso
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTER SUBJECT MODAL -->
+        <div class="modal fade" id="modalRegisterSubject" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Adicionar uma disciplina</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Nome: </label>
+                                <input class="form-control" id="registerSubjectName">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Créditos: </label>
+                                <input class="form-control" id="registerSubjectCredits"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Descrição (opcional): </label>
+                                <textarea class="form-control" id="registerSubjectDescription"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end"
+                            id="btnSubmitRegisterSubject">
+                            Adicionar Disciplina
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASSOCIATE A SUBJCET TO A COURSE -->
+        <div class="modal fade" id="modalAssociateSubjectToCourse" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Associar uma disciplina a um curso</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Nome do curso: </label>
+                                <input class="form-control" id="associateCourseName">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Nome da disciplina: </label>
+                                <input class="form-control" id="associateSubjectName"></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end"
+                            id="btnAssociateSubjectToCourse">
+                            Associar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOW ALL COURSES -->
+        <div class="modal fade" id="modalShowAllCourses" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Mostrar todos os cursos</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <p> Verificar na consola que os cursos estão realmente criados </p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnShowAllCourses">
+                            Mostrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOW ALL SUBJECTS -->
+        <div class="modal fade" id="modalShowAllSubjects" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Mostrar todas as disciplinas</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <p> Verificar na consola que as disciplinas estão realmente criados </p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnShowAllSubjects">
+                            Mostrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div>
+                    <button type="button" id="modalRegisterCourse" class="btn btn-secondary btn-wrapper"
+                        data-bs-toggle="modal" data-bs-target="#modalRegisterCourse">
+                        Adicionar Curso
+                    </button>
+                    <button type="button" id="modalRegisterSubject" class="btn btn-secondary btn-wrapper"
+                        data-bs-toggle="modal" data-bs-target="#modalRegisterSubject">
+                        Adicionar Disciplina
+                    </button>
+                    <button type="button" id="modalAssociateSubjectToCourse" class="btn btn-secondary btn-wrapper"
+                        data-bs-toggle="modal" data-bs-target="#modalAssociateSubjectToCourse">
+                        Associar Curso a Disciplina
+                    </button>
+                    <button type="button" id="modalShowAllCourses" class="btn btn-secondary btn-wrapper"
+                        data-bs-toggle="modal" data-bs-target="#modalShowAllCourses">
+                        Mostrar todos os cursos
+                    </button>
+                    <button type="button" id="modalShowAllSubjects" class="btn btn-secondary btn-wrapper"
+                        data-bs-toggle="modal" data-bs-target="#modalShowAllSubjects">
+                        Mostrar todas as disciplinas
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!------------ JS Scripts ------------>
+
+        <!-- Logout -->
+        <script>
+            let logoutButton = document.getElementById("btnSubmitLogout")
+
+            logoutButton.addEventListener("click", () => {
+
+                document.cookie = "access-token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;"
+                window.location = '/'
+            })
+        </script>
+
+        <!-- Register a course -->
+        <script>
+            let btnSubmitRegisterCourse = document.getElementById("btnSubmitRegisterCourse")
+
+            btnSubmitRegisterCourse.addEventListener("click", () => {
+                let name = document.getElementById("registerCourseName").value
+                let credits = document.getElementById("registerCourseCredits").value
+                let description = document.getElementById("registerCourseDescription").value
+                let duration = document.getElementById("registerCourseDuration").value
+
+                if (name === '' || credits === '' || duration === '') {
+                    window.alert('Preencha todos os campos')
+                }
+                else {
+                    let auth_data = {
+                        'name': name,
+                        'credits': credits,
+                        'description': description,
+                        'duration': duration,
+                    }
+
+                    let auth = JSON.stringify(auth_data)
+
+                    fetch('/api/registerCourse', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: auth,
+                    }).then((response) => {
+                        console.log(response.status);
+                        if (response.status == 201) {
+                            window.alert(`Curso ${name} registado com sucesso`)
+                            window.location = 'admin'
+                        }
+                    }).catch((err) => { console.log(err) })
+                }
+            })
+        </script>
+
+        <!-- Register a subject -->
+        <script>
+            let btnSubmitRegisterSubject = document.getElementById("btnSubmitRegisterSubject")
+
+            btnSubmitRegisterSubject.addEventListener("click", () => {
+                let name = document.getElementById("registerSubjectName").value
+                let credits = document.getElementById("registerSubjectCredits").value
+                let description = document.getElementById("registerSubjectDescription").value
+
+                if (name === '' || credits === '') {
+                    window.alert('Preencha todos os campos')
+                }
+                else {
+                    let auth_data = {
+                        'name': name,
+                        'credits': credits,
+                        'description': description,
+                    }
+
+                    let auth = JSON.stringify(auth_data)
+
+                    fetch('/api/registerSubject', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: auth,
+                    }).then((response) => {
+                        console.log(response.status);
+                        if (response.status == 201) {
+                            window.alert(`Disciplina ${name} registado com sucesso`)
+                            window.location = 'admin'
+                        }
+                    }).catch((err) => { console.log(err) })
+                }
+            })
+        </script>
+
+        <!-- Associate a course to a subject -->
+        <script>
+            let btnAssociateSubjectToCourse = document.getElementById("btnAssociateSubjectToCourse")
+
+            btnAssociateSubjectToCourse.addEventListener("click", () => {
+                let courseName = document.getElementById("associateCourseName").value
+                let subjectName = document.getElementById("associateSubjectName").value
+
+                if (courseName === '' || subjectName === '') {
+                    window.alert('Preencha todos os campos')
+                }
+                else {
+                    let auth_data = {
+                        'courseName': courseName,
+                        'subjectName': subjectName,
+                    }
+
+                    let auth = JSON.stringify(auth_data)
+
+                    fetch('/api/associateSubject', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: auth,
+                    }).then((response) => {
+                        console.log(response.status);
+                        if (response.status == 201) {
+                            window.alert(`Disciplina ${subjectName} associada ao curso ${courseName} com sucesso`)
+                            window.location = 'admin'
+                        }
+                    }).catch((err) => { console.log(err) })
+                }
+            })
+        </script>
+
+        <!-- Show All Courses -->
+        <script>
+            let btnShowAllCourses = document.getElementById("btnShowAllCourses")
+
+            btnShowAllCourses.addEventListener("click", () => {
+
+                fetch('/api/getAllCourses', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then((response) => {
+                    //console.log(response.json());
+                    return response.json()
+                }).then((data) => {
+                    let courses = data;
+
+                    console.log(courses);
+
+                }).catch((err) => { console.log(err) })
+            })
+
+        </script>
+
+        <!-- Show All Subjects -->
+        <script>
+            let btnShowAllSubjects = document.getElementById("btnShowAllSubjects")
+
+            btnShowAllSubjects.addEventListener("click", () => {
+
+                fetch('/api/getAllSubjects', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then((response) => {
+                    //console.log(response.json());
+                    return response.json()
+                }).then((data) => {
+                    let courses = data;
+
+                    console.log(courses);
+
+                }).catch((err) => { console.log(err) })
+            })
+
+        </script>
+
+</body>
+
+</html>

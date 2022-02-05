@@ -1,0 +1,29 @@
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../database')
+
+class Professor extends Model { }
+
+Professor.init({
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    password: {
+        type: DataTypes.STRING,
+    },
+}, {
+    sequelize,
+    modelName: 'professor',
+    timestamps: false
+})
+
+module.exports = Professor
