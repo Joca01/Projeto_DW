@@ -4,11 +4,11 @@ const app = express()
 app.set('view engine', 'ejs');
 const path = require('path')
 const sequelize = require('./database')
+const main_controller = require('./controllers/main_controller')
 
 
 var Course = require("./models/Courses")
 var Subject = require("./models/Subjects")
-var Student = require("./models/Students");
 
 sequelize.sync().then(() => console.log('db is ready'));
 
@@ -23,20 +23,18 @@ app.get('/', (req, res) => {
 })
 
 app.get('/HomePage', async (req, res) => {
-    try {
-        const coursename = await Course.findAll({ raw: true })
+    const courseId1 = await Course.findOne({ where: { id: 1 } })
+    const courseId2 = await Course.findOne({ where: { id: 2 } })
+    const courseId3 = await Course.findOne({ where: { id: 3 } })
 
-        console.log(coursename); 
-        res.render('HomePage')
-    }
-    catch (err) {
-        return res.status(404).send({ message: err.message })
-    }
+    res.render('HomePage', { course1: courseId1.getDataValue('name'), course2: courseId2.getDataValue('name'), course3: courseId3.getDataValue('name') })
 })
 
 app.get('/course/:id', async (req, res) => {
     try {
-        const courseId = await Course.findOne({ where: { id: req.params.id } })
+        const courseId = await Course.findOne({ include: Subject, where: { id: req.params.id } })
+
+        //console.log(courseId);
 
         res.render('Courses', { course: courseId.getDataValue('name') })
 
@@ -51,11 +49,15 @@ app.get('/course/:courseId/subject/:subjectId', async (req, res) => {
         const courseId = await Course.findOne({ where: { id: req.params.courseId } })
         const subjectId = await Subject.findOne({ where: { id: req.params.subjectId } })
 
-        res.render('Subjects')
+        res.render('Subjects', { subject: subjectId.getDataValue('name') })
     }
     catch (err) {
         return res.status(404).send({ message: err.message })
     }
+})
+
+app.get('/admin', async (req, res) => {
+    res.render('admin')
 })
 
 

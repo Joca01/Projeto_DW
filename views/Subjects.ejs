@@ -19,68 +19,71 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-    <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h3>Logout</h3>
-                            </div>
-                            <div class="col-1" style="padding: 10px 0px 0px 15px;">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+        <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Logout</h3>
+                                </div>
+                                <div class="col-1" style="padding: 10px 0px 0px 15px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-body">
-                    <h2>Deseja encerrar sessão?</h2>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnSubmitLogout">
-                        Logout
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-
-        <div class="row">
-            <div class="card bg-secondary text-white" style="width: 100%; margin-top: 10px;">
-                <div class="card-body">
-                    <h5 class="card-title">Teste 1</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Professor responsável: </h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Ir</a>
+                    <div class="modal-body">
+                        <h2>Deseja encerrar sessão?</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-wrapper float-end" id="btnSubmitLogout">
+                            Logout
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="card bg-secondary text-white" style="width: 100%; margin-top: 10px;">
-                <div class="card-body">
-                    <h5 class="card-title">Teste 2</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Professor responsável: </h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Ir</a>
+        <div class="container">
+            <h1> Welcome to <%= subject%>
+            </h1>
+
+            <div class="row">
+                <div class="card bg-secondary text-white" style="width: 100%; margin-top: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Teste 1</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Professor responsável: </h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary">Ir</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card bg-secondary text-white" style="width: 100%; margin-top: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Teste 2</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Professor responsável: </h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary">Ir</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 
 </html>

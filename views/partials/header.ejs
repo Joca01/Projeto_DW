@@ -7,19 +7,25 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/HomePage">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/HomePage">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin">Admin</a>
       </li>
     </ul>
+
+
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
     </form>
-    <div style="margin: 5px; float: right;">
-      <!-- <span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span> -->
+
+    <div style="margin:5px; padding-left: 880px; float: right;">
 
       <button type="button" id="btnModalLogout" class="btn btn-secondary btn-wrapper" data-bs-toggle="modal"
         data-bs-target="#modalLogout">
         Logout
       </button>
     </div>
+
   </div>
 </nav>

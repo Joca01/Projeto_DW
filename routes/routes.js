@@ -17,6 +17,8 @@ module.exports = app => {
 
     router.get('/getCourse', main_controller.getCourse)
 
+    router.delete('/deleteCourse', main_controller.deleteCourse)
+
     router.post('/registerSubject', main_controller.registerSubject)
 
     router.put('/associateStudent', main_controller.associateStudent)
@@ -24,4 +26,8 @@ module.exports = app => {
     router.post('/associateSubject', main_controller.associateSubject)
 
     router.get('/getAllSubjects', main_controller.getAllSubjects)
+
+    router.get('/getAllCourses', main_controller.getAllCourses)
+
+    router.get('/getOneSubject', main_controller.getOneSubject)
 }

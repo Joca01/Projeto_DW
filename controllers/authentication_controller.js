@@ -26,7 +26,7 @@ exports.register = async (req, res) => {
                 email: auth.email,
                 password: hashPassword
             })
-            
+
             return res.status(201).send({ message: auth.name + ' created' })
         }
         else {

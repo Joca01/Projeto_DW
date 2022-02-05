@@ -107,6 +107,7 @@
             }
         }
     </script>
+
     <script>
         var state = false
         function togglePswLogin() {
@@ -130,7 +131,7 @@
             let email = document.getElementById("emailRegister").value
             let password = document.getElementById("passwordRegister").value
 
-            window.location = 'HomePage'
+            //window.location = 'HomePage'
 
             if (name === '' || password === '' || email === '') {
                 window.alert('Preencha todos os campos')
@@ -170,7 +171,7 @@
             let email = document.getElementById("emailLogin").value
             let password = document.getElementById("passwordLogin").value
 
-            window.location = 'HomePage'
+            //window.location = 'HomePage'
 
             if (password == '' || email == '') {
                 window.alert('Preencha todos os campos')
@@ -198,6 +199,7 @@
                         window.alert(`Login efetuado com sucesso 
 Bem vindo`)
                     }
+                    window.location = 'HomePage'
                 }).catch((err) => { console.log(err) })
             }
         })
